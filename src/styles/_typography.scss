@@ -1,0 +1,28 @@
+@import 'theme';
+
+@mixin fuente-primaria {
+  font-family: 'Big Shoulders Display', sans-serif;
+}
+
+@mixin titulo-inicio {
+  @include fuente-primaria;
+  font-size: 10rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  color: transparent;
+  -webkit-text-stroke: 5px $negro;
+  position: relative;
+
+  &::after {
+    content: "JOVED";
+    position: absolute;
+    transform: translateX(-100%);
+    font-size: 10rem;
+    font-weight: 700;
+    margin: 5px;
+    z-index: -2;
+    letter-spacing: 0.5rem;
+    color: #9952FF;
+    -webkit-text-stroke: 0px;
+  }
+}

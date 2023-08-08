@@ -1,0 +1,84 @@
+@import '../../../styles/main';
+
+
+.main-div{
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+.mat-card{
+  box-shadow: -10px 10px 25px -8px #7519de;
+  border: 1px solid #E7E7E7;
+
+}
+.a-register{
+  text-align: center;
+  text-decoration: none;
+ @include fuente-primaria;
+ font-size: 1.5rem;
+ color: black;
+
+}
+.username , .password{
+  width: 100%;
+}
+
+.button-login{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.button-login button{
+  background-color: $morado-primario;
+  color: white;
+}
+
+
+.button-login img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.titulo-principal{
+  @include titulo-inicio;
+
+}
+
+.f1{
+  display: flex;
+    flex-direction: column;
+    height: 30rem;
+    position: absolute;
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    transform: translateX(20%) rotate(178deg);
+}
+@media screen and (max-width: 1000px) {
+  .f1{
+      display:none;
+  }
+}
+
+
+.f2{
+  display: flex;
+    flex-direction: column;
+    height: 30rem;
+    position: absolute;
+    -moz-transform: rotate(-10deg);
+    -o-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+    transform: translateX(20%) rotate(178deg);
+}
+@media screen and (max-width: 1000px) {
+  .f2{
+      display:none;
+  }
+}

@@ -1,0 +1,53 @@
+@import '../../../styles/main';
+
+.main-div{
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  width: max-content;
+  position: absolute;
+  right: 50%;
+  transform: translate(50%);
+}
+.mat-card{
+  box-shadow: -10px 10px 25px -8px #7519de;
+  border: 1px solid #E7E7E7;
+  margin-bottom: 20px;
+
+}
+.username , .password, .name, .surname, .phone , .fetch, .email{
+  width: 100%;
+}
+
+.button-login{
+  display: flex;
+  justify-content: center;
+
+}
+
+.button-login button{
+  background-color: $morado-primario;
+  color: white;
+}
+
+
+.button-login img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.a-login{
+  text-align: center;
+  text-decoration: none;
+ @include fuente-primaria;
+ font-size: 1.5rem;
+ color: black;
+ margin-bottom: 2rem;
+
+}
+
+
+.titulo-principal{
+  @include titulo-inicio;
+
+}
