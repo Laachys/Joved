@@ -51,34 +51,99 @@
 }
 
 .f1{
-  display: flex;
+    display: flex;
     flex-direction: column;
-    height: 30rem;
-    position: absolute;
-    -moz-transform: rotate(-10deg);
-    -o-transform: rotate(-10deg);
-    -webkit-transform: rotate(-10deg);
-    transform: translateX(20%) rotate(178deg);
+    width: 25%;
+    position: fixed;
+    transform: translateX(-5%) translateY(-25%) rotate(274deg);
 }
 @media screen and (max-width: 1000px) {
   .f1{
-      display:none;
+    width: 60%;
+    transform: translateX(-25%) translateY(-45%) rotate(274deg);
+
   }
 }
 
 
 .f2{
+
   display: flex;
-    flex-direction: column;
-    height: 30rem;
-    position: absolute;
-    -moz-transform: rotate(-10deg);
-    -o-transform: rotate(-10deg);
-    -webkit-transform: rotate(-10deg);
-    transform: translateX(20%) rotate(178deg);
+  flex-direction: column;
+  width: 35%;
+  position: fixed;
+  transform: translateX(-40%) translateY(25%) rotate(204deg);
 }
 @media screen and (max-width: 1000px) {
   .f2{
-      display:none;
+    width: 60%;
+    transform: translateX(-40%) translateY(150%) rotate(204deg);
+
   }
 }
+
+.f3{
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+  position: fixed;
+  transform: translateX(500%) translateY(55%) rotate(272deg);
+
+}
+@media screen and (max-width: 1000px) {
+.f3{
+  width: 60%;
+  transform: translateX(500%) translateY(55%) rotate(272deg);
+
+}
+}
+
+.f4{
+
+  display: flex;
+    flex-direction: column;
+    width: 35%;
+    position: fixed;
+    transform: translateX(230%) translateY(25%) rotate(209deg);
+
+}
+@media screen and (max-width: 1000px) {
+.f4{
+  width: 60%;
+  transform: translateX(100%) translateY(150%) rotate(209deg);
+
+}
+}
+
+.f5{
+
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  position: fixed;
+  transform: translateX(290%) translateY(-25%) rotate(136deg);
+}
+@media screen and (max-width: 1000px) {
+.f5{
+  width: 60%;
+  transform: translateX(90%) translateY(-25%) rotate(136deg);
+}
+}
+
+.f10{
+
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  position: fixed;
+  transform: translateX(150%) translateY(150%) rotate(280deg);
+
+}
+@media screen and (max-width: 1000px) {
+.f10{
+  width: 60%;
+  transform: translateX(500%) translateY(55%) rotate(272deg);
+}
+}
+
+

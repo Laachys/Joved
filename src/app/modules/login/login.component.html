@@ -1,6 +1,26 @@
 <!-- login.component.html -->
-<img src="assets/f1.png" class="f1" >
-<img src="assets/f2.png" class="f2" >
+<img src="assets/img-fondo/f1.png" class="f1" >
+<img src="assets/img-fondo/f2.png" class="f2" >
+<img src="assets/img-fondo/f3.png" class="f3" >
+
+<img src="assets/img-fondo/f4.png" class="f4" >
+
+<img src="assets/img-fondo/f5.png" class="f5" >
+
+<img src="assets/img-fondo/f10.png" class="f10" >
+
+<!--
+<img src="assets/img-fondo/f6.png" class="f6" >
+<img src="assets/img-fondo/f7.png" class="f7" >
+<img src="assets/img-fondo/f8.png" class="f8" >
+<img src="assets/img-fondo/f9.png" class="f9" >
+<img src="assets/img-fondo/f10.png" class="f10" >
+<img src="assets/img-fondo/f11.png" class="f11" >
+<img src="assets/img-fondo/f12.png" class="f12" > -->
+
+
+
+
 
 
 <div class="main-div">
@@ -10,7 +30,7 @@
       <form [formGroup]="formularioRegister"  (submit)="onSubmit()">
 
           <mat-form-field class="username">
-            <mat-label for="username">Usuario:</mat-label>
+            <mat-label for="username">Usuario o email</mat-label>
             <input formControlName="username" matInput id="username" name="username">
           </mat-form-field>
 
@@ -18,7 +38,7 @@
           <br>
 
           <mat-form-field class="password">
-            <mat-label for="password">Contraseña:</mat-label>
+            <mat-label for="password">Contraseña</mat-label>
             <input matInput formControlName="password" type="text" [type]="hide ? 'password' : 'text'" id="password"
               name="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"

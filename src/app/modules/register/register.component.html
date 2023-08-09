@@ -1,6 +1,11 @@
 
-<img src="f1.png" class="f1" />
-<img src="f2.png" class="f2" />
+<img src="assets/img-fondo/f2.png" class="f2" >
+<img src="assets/img-fondo/f4.png" class="f4" >
+<img src="assets/img-fondo/f12.png" class="f12" >
+<img src="assets/img-fondo/f7.png" class="f7" >
+
+
+
 
 <div class="main-div">
   <span class="titulo-principal">JOVED</span>
@@ -9,14 +14,14 @@
     <form [formGroup]="formularioRegister" (submit)="onSubmit()">
 
       <mat-form-field class="username">
-        <mat-label for="username">Usuario:</mat-label>
+        <mat-label for="username">Usuario</mat-label>
         <input formControlName="username" matInput id="username"  name="username">
       </mat-form-field>
 
       <br>
       <br>
       <mat-form-field class="name">
-        <mat-label for="name">Nombre:</mat-label>
+        <mat-label for="name">Nombre</mat-label>
         <input formControlName="name" matInput id="name"  name="name">
       </mat-form-field>
 
@@ -24,7 +29,7 @@
       <br>
 
       <mat-form-field class="surname">
-        <mat-label for="surname">Apellidos:</mat-label>
+        <mat-label for="surname">Apellidos</mat-label>
         <input formControlName="surname" matInput id="surname" name="surname">
       </mat-form-field>
 
@@ -32,7 +37,7 @@
       <br>
 
       <mat-form-field class="password">
-        <mat-label for="password">Contraseña:</mat-label>
+        <mat-label for="password">Contraseña</mat-label>
         <input matInput formControlName="password" type="text" [type]="hide ? 'password' : 'text'"  id="password"
           name="password">
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
@@ -45,7 +50,7 @@
       <br>
 
       <mat-form-field class="phone">
-        <mat-label for="phone">Teléfono:</mat-label>
+        <mat-label for="phone">Teléfono</mat-label>
         <input formControlName="phone" matInput id="phone"  name="phone">
       </mat-form-field>
 
