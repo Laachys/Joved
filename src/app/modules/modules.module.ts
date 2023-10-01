@@ -11,12 +11,69 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { CategoriesComponent } from './categories/categories.component';
+import { SharedNavbarComponent } from '../shared/components/shared-navbar/shared-navbar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { NgbCarouselModule, } from '@ng-bootstrap/ng-bootstrap';
+
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCE4aNIVyoTuoAsJ2jju9m6dSOBCvlW8Y0",
+  authDomain: "joved-60bf1.firebaseapp.com",
+  projectId: "joved-60bf1",
+  storageBucket: "joved-60bf1.appspot.com",
+  messagingSenderId: "629001745877",
+  appId: "1:629001745877:web:148dfed3e19944150b395c",
+  measurementId: "G-SGVX87SDKR"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+// import Swiper from 'swiper';
+//import { SwiperModule } from 'swiper/angular';
+// import { Navigation, Pagination } from 'swiper/modules';
+
+// const swiper = new Swiper('.swiper', {
+//   // configure Swiper to use modules
+//   // Optional parameters
+//   direction: 'vertical',
+//   loop: true,
+
+//   // If we need pagination
+//   pagination: {
+//     el: '.swiper-pagination',
+//   }
+
+// // });
+// var swiper = new Swiper(".mySwiper", {
+//   slidesPerView: 3,
+//   centeredSlides: true,
+//   spaceBetween: 30,
+//   pagination: {
+//     el: ".swiper-pagination",
+//     type: "fraction",
+//   },
+//   navigation: {
+//     nextEl: ".swiper-button-next",
+//     prevEl: ".swiper-button-prev",
+//   },
+// });
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    CategoriesComponent,
+    SharedNavbarComponent
   ],
   imports: [
     CommonModule,
@@ -28,10 +85,14 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatGridListModule,
+    MatMenuModule,
+    NgbCarouselModule
 
   ],
-   exports: [LoginComponent, RegisterComponent]
+   exports: [LoginComponent, RegisterComponent, HomeComponent]
 
 
 })

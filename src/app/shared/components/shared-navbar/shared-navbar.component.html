@@ -1,0 +1,10 @@
+<header class="header">
+  <button mat-button [matMenuTriggerFor]="menu" class="button-login "><img src="../../../../assets/icons/iconousuario.png"></button>
+  <mat-menu #menu="matMenu" class="bg-white bg-opacity-50">
+    <button *ngIf="!logueado" (click)="login()" mat-menu-item>Iniciar sesión</button>
+    <button *ngIf="logueado" mat-menu-item>Mi perfil</button>
+    <button *ngIf="logueado" mat-menu-item>Subir producto</button>
+    <button *ngIf="logueado" (click)="login()" mat-menu-item>Cerrar sesión</button>
+
+  </mat-menu>
+  </header>

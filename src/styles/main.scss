@@ -3,3 +3,9 @@
 
 
 
+.carousel-control-prev,
+.carousel-control-next {
+  color: #ff0000 !important;  /* Cambia el color de las flechas a rojo */
+  font-size: 24px !important; /* Cambia el tamaño de las flechas */
+  /* Otros estilos que desees aplicar */
+}

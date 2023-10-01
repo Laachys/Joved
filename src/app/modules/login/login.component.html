@@ -2,11 +2,8 @@
 <img src="assets/img-fondo/f1.png" class="f1" >
 <img src="assets/img-fondo/f2.png" class="f2" >
 <img src="assets/img-fondo/f3.png" class="f3" >
-
 <img src="assets/img-fondo/f4.png" class="f4" >
-
 <img src="assets/img-fondo/f5.png" class="f5" >
-
 <img src="assets/img-fondo/f10.png" class="f10" >
 
 <!--
@@ -27,7 +24,7 @@
   <span class="titulo-principal">JOVED</span>
   <mat-card class="mat-card">
     <mat-card-content>
-      <form [formGroup]="formularioRegister"  (submit)="onSubmit()">
+      <form [formGroup]="formularioLogin"  (submit)="onSubmit()">
 
           <mat-form-field class="username">
             <mat-label for="username">Usuario o email</mat-label>
@@ -49,7 +46,7 @@
 
 
           <div class="button-login">
-            <button mat-fab extended>
+            <button mat-fab extended (click)="onSubmit()">
               INICIAR SESIÓN
             </button>
           </div>

@@ -10,6 +10,13 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { ModulesModule } from './modules/modules.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import {MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
+import {MatMenuModule} from '@angular/material/menu';
+import { SharedNavbarComponent } from './shared/components/shared-navbar/shared-navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 @NgModule({
   declarations: [
@@ -24,9 +31,10 @@ import { ModulesModule } from './modules/modules.module';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
+    NgbModule,
 
   ],
-  providers: [],
+  providers: [{provide: MAT_DATE_LOCALE, useValue: 'es-ES'}, {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

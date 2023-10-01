@@ -15,7 +15,9 @@
 
       <mat-form-field class="username">
         <mat-label for="username">Usuario</mat-label>
-        <input formControlName="username" matInput id="username"  name="username">
+        <input formControlName="username" matInput id="username" (blur)="compruebaUsername()"  name="username">
+        <mat-hint *ngIf="existeusername"> {{existeusername}}</mat-hint>
+        <mat-hint *ngIf="formularioRegister.controls['username'].errors && (formularioRegister.controls['username'].value)"> Debe introducir un usuario con un mínimo de 4 carácteres</mat-hint>
       </mat-form-field>
 
       <br>
@@ -23,6 +25,7 @@
       <mat-form-field class="name">
         <mat-label for="name">Nombre</mat-label>
         <input formControlName="name" matInput id="name"  name="name">
+        <mat-hint *ngIf="formularioRegister.controls['name'].errors && (formularioRegister.controls['name'].value)"> Debes introducir un nombre</mat-hint>
       </mat-form-field>
 
       <br>
@@ -31,6 +34,7 @@
       <mat-form-field class="surname">
         <mat-label for="surname">Apellidos</mat-label>
         <input formControlName="surname" matInput id="surname" name="surname">
+        <mat-hint *ngIf="formularioRegister.controls['surname'].errors && (formularioRegister.controls['surname'].value)"> Debes introducir un apellido </mat-hint>
       </mat-form-field>
 
       <br>
@@ -44,6 +48,7 @@
           [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+        <mat-hint *ngIf="formularioRegister.controls['password'].errors && (formularioRegister.controls['password'].value)">Debes introducir una contraseña de mínimo 8 carácteres</mat-hint>
       </mat-form-field>
 
       <br>
@@ -52,17 +57,18 @@
       <mat-form-field class="phone">
         <mat-label for="phone">Teléfono</mat-label>
         <input formControlName="phone" matInput id="phone"  name="phone">
+        <mat-hint *ngIf="formularioRegister.controls['phone'].errors && (formularioRegister.controls['phone'].value) " >El teléfono no es válido</mat-hint>
       </mat-form-field>
 
       <br>
       <br>
 
-      <mat-form-field class="fetch">
+      <mat-form-field class="date">
         <mat-label>Fecha de nacimiento</mat-label>
-        <input  formControlName="fetch" matInput [matDatepicker]="fetch">
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="fetch"></mat-datepicker-toggle>
-        <mat-datepicker #fetch></mat-datepicker>
+        <input formControlName="date" matInput [matDatepicker]="date">
+        <mat-hint>DD/MM/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
       </mat-form-field>
 
 

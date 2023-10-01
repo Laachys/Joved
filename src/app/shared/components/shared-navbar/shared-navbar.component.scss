@@ -1,0 +1,52 @@
+
+@import '../../../../styles/main.scss';
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+}
+.title-name{
+  @include titulo-navbar;
+}
+.header{
+  margin-right: 8rem;
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 1000px) {
+  .header{
+   // margin-left: 20rem;
+   margin-right: 1rem;
+    padding-top: 3rem;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}
+
+img{
+  width: 4rem;
+  background-color: rgb(255 255 255 / 90%);
+  border: 1px solid rgb(238 238 238 / 90%);
+  border-radius: 45%;
+  box-shadow: 9px 10px 30px -5px #7519de;
+}
+
+.nav-links{
+  list-style: none;
+}
+
+.nav-links li{
+display: inline-block;
+padding: 0 10px;
+
+}
+
+.nav-links a{
+  font-size: 1rem;
+  text-decoration: none;
+
+}
+

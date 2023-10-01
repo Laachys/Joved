@@ -1,0 +1,63 @@
+
+<img src="assets/img-fondo/f6.png" class="f6" >
+<img src="assets/img-fondo/f9.png" class="f9" >
+<img src="assets/img-fondo/f5.png" class="f5" >
+<img src="assets/img-fondo/f10.png" class="f10" >
+<img src="assets/img-fondo/f11.png" class="f11" >
+<img src="assets/img-fondo/f12.png" class="f12" >
+<img src="assets/img-fondo/f4.png" class="f4" >
+<app-shared-navbar></app-shared-navbar>
+
+<div class="main-div">
+
+  <span class="titulo-home">JOVED</span>
+  <span> ¿Qué buscas hoy? </span>
+</div>
+<div class="options-div">
+
+      <!-- <button  class="card-buy" [matMenuTriggerFor]="menu">
+        <img src="assets/icons/buybag.png" class="buy">
+        <label>COMPRAR</label>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item (click)="redirectToBuy()"><img src="assets/icons/ropa.png" class="clothes"><label>Ropa</label></button>
+    <button mat-menu-item><img src="assets/icons/casa.png" class="houses"> <label>Viviendas</label> </button>
+    <button mat-menu-item> <img src="assets/icons/car.png" class="vehicles"><label>Vehiculos</label></button>
+      </mat-menu>
+
+      <button (click)="redirectToSold()"  class="card-sold">
+        <img src="assets/icons/sold.png" class="sold">
+        <label>VENDER</label>
+      </button> -->
+
+<ngb-carousel class="carousel-dark">
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper" class="card-buy">
+      <button (click)="viewProducts(0)" class="button-houses">
+			<img src="assets/icons/casa.png" class="houses" alt="Random first slide" />
+      <label>Inmobiliaria</label>
+    </button>
+		</div>
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper" class="card-buy">
+  <button  (click)="viewProducts(1)" class="button-vehicles">
+			<img src="assets/icons/car.png"  class="vehicles" alt="Random second slide" />
+      <label>Vehículos</label>
+      </button>
+		</div>
+	</ng-template>
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper" class="card-buy">
+    <button (click)="viewProducts(2)" class="button-clothes">
+			<img src="assets/icons/ropa.png"  class="clothes" alt="Random second slide" />
+      <label>Moda</label>
+    </button>
+
+		</div>
+
+	</ng-template>
+
+</ngb-carousel>
+</div>
+

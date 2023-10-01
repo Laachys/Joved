@@ -26,3 +26,52 @@
     -webkit-text-stroke: 0px;
   }
 }
+
+
+@mixin titulo-home {
+  @include fuente-primaria;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  color: transparent;
+  -webkit-text-stroke: 3px $negro;
+  position: relative;
+
+  &::after {
+    content: "JOVED";
+    position: absolute;
+    transform: translateX(-100%);
+    font-size: 5rem;
+    font-weight: 700;
+    margin: 3px;
+    z-index: -2;
+    letter-spacing: 0.5rem;
+    color: #9952FF;
+    -webkit-text-stroke: 0px;
+  }
+}
+
+
+@mixin titulo-navbar {
+  @include fuente-primaria;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+  color: transparent;
+  -webkit-text-stroke: 2px $negro;
+  position: relative;
+  z-index: 2;
+
+  &::after {
+    content: "JOVED";
+    position: absolute;
+    transform: translateX(-100%);
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1.5px;
+    z-index: -1;
+    letter-spacing: 0.5rem;
+    color: #9952FF;
+    -webkit-text-stroke: 0px;
+  }
+}
