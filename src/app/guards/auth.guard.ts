@@ -4,9 +4,9 @@ import { EjemploService } from '../core/ejemplo.service';
 
 
 export const authGuard: CanActivateFn = (route, state) => {
-  alert(inject(EjemploService).logueado);
+  //alert(inject(EjemploService).logueado);
 
-  if(!inject(EjemploService).logueado){
+  if(inject(EjemploService).id_user == ''){
   inject(Router).navigate(['/home']);
   }
 

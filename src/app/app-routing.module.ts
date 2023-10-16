@@ -5,6 +5,7 @@ import { RegisterComponent } from './modules/register/register.component';
 import { HomeComponent } from './modules/home/home.component';
 import { CategoriesComponent } from './modules/categories/categories.component';
 import { authGuard } from './guards/auth.guard';
+import { NewproductComponent } from './modules/newproduct/newproduct.component';
 
 const routes: Routes = [
   {
@@ -23,10 +24,11 @@ const routes: Routes = [
     path: 'categories', component:CategoriesComponent
   },
   {
-    path: 'newproduct', component:CategoriesComponent, canActivate: [authGuard]
+    path: 'newproduct', component:NewproductComponent , canActivate: [authGuard]
   }
 ];
 
+// , canActivate: [authGuard]
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

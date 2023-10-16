@@ -31,31 +31,34 @@
       </button> -->
 
 <ngb-carousel class="carousel-dark">
+
 	<ng-template ngbSlide>
 		<div class="picsum-img-wrapper" class="card-buy">
       <button (click)="viewProducts(0)" class="button-houses">
-			<img src="assets/icons/casa.png" class="houses" alt="Random first slide" />
-      <label>Inmobiliaria</label>
-    </button>
-		</div>
-	</ng-template>
-	<ng-template ngbSlide>
-		<div class="picsum-img-wrapper" class="card-buy">
-  <button  (click)="viewProducts(1)" class="button-vehicles">
-			<img src="assets/icons/car.png"  class="vehicles" alt="Random second slide" />
-      <label>Vehículos</label>
+			  <img src="assets/icons/casa.png" class="houses" alt="Random first slide" />
+        <label>Inmobiliaria</label>
       </button>
 		</div>
 	</ng-template>
+
+
 	<ng-template ngbSlide>
 		<div class="picsum-img-wrapper" class="card-buy">
-    <button (click)="viewProducts(2)" class="button-clothes">
-			<img src="assets/icons/ropa.png"  class="clothes" alt="Random second slide" />
-      <label>Moda</label>
-    </button>
-
+      <button  (click)="viewProducts(1)" class="button-vehicles">
+			  <img src="assets/icons/car.png"  class="vehicles" alt="Second slide" />
+        <label>Vehículos</label>
+      </button>
 		</div>
+	</ng-template>
 
+
+	<ng-template ngbSlide>
+		<div class="picsum-img-wrapper" class="card-buy">
+      <button (click)="viewProducts(2)" class="button-clothes">
+			  <img src="assets/icons/ropa.png"  class="clothes" alt="Third slide" />
+        <label>Moda</label>
+      </button>
+		</div>
 	</ng-template>
 
 </ngb-carousel>

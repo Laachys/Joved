@@ -8,16 +8,18 @@
   position: absolute;
   right: 50%;
   transform: translate(50%);
+  text-align: center;
 }
 .mat-card{
-  // box-shadow: -10px 10px 25px -8px #7519de;
-  // border: 1px solid #E7E7E7;
+  box-shadow: -10px 10px 25px -8px #7519de;
+  border: 1px solid #E7E7E7;
   margin-bottom: 20px;
-  box-shadow: 0px 8px 15px -6px #7a7a7a;
-    border: 1px solid #dedbdb;
 
 }
-.username , .password, .name, .surname, .phone , .date, .email{
+.imagenes img{
+  width: 30%;
+}
+.name , .price, .address, .description , .categories{
   width: 100%;
 }
 
@@ -36,16 +38,6 @@
 .button-login img{
   width: 100%;
   object-fit: cover;
-}
-
-.a-login{
-  text-align: center;
-  text-decoration: none;
- @include fuente-primaria;
- font-size: 1.5rem;
- color: black;
- margin-bottom: 2rem;
-
 }
 
 
@@ -112,4 +104,20 @@
   transform: translateX(95%) translateY(100%) rotate(333deg);
 
 }
+}
+
+
+
+.custom-dropzone {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* position: static; */
+  max-width: 29rem;
+  margin-bottom: 1rem;
+}
+
+.custom-dropzone p{
+ width: 28rem;
 }

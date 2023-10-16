@@ -33,7 +33,7 @@ export class HomeComponent {
 
     }  else if(category === 2){
       this.api.category=2;
-      this.router.navigate(['/home']);
+      this.router.navigate(['/categories']);
 
     }
   }

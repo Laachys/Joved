@@ -1,15 +1,19 @@
 // import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { EjemploService } from 'src/app/core/ejemplo.service';
 import { LoginI } from 'src/app/core/login.interface';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [CookieService]
 })
+
+
 export class LoginComponent {
   data :any[] = [];
   resultado!: string;
@@ -19,8 +23,13 @@ protected ModelFormu : LoginI = {
   username: '',
   password: ''
 };
+cookieService = inject(CookieService);
+  cookieValue: string | undefined;
 // password = "123456";
-constructor( private api: EjemploService , private router: Router) { }
+constructor( private api: EjemploService , private router: Router) {}
+
+
+
 
 formularioLogin = new FormGroup({
   username: new FormControl('' , (Validators.required, Validators.minLength(4))),
@@ -59,10 +68,15 @@ this.ModelFormu.username = this.formularioLogin.controls['username'].value ?? ""
 // })
 
 this.api.compruebaUser(this.ModelFormu).subscribe(data => {
-    this.data = data;
+    //this.data = this.api.id_user;
+
+    this.api.id_user = data;
+    console.log(data);
       if(data){
          this.router.navigate(['home']);
          this.api.logueado = true;
+         this.cookieService.set('Id_user',  this.api.id_user );
+         this.cookieValue = this.cookieService.get('Id_user');
       }else{
         this.router.navigate(['login']);
         this.api.logueado = false;

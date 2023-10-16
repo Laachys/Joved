@@ -4,6 +4,34 @@
 <img src="assets/img-fondo/f12.png" class="f12" >
 
 <app-shared-navbar></app-shared-navbar>
+<div onload="onLoad()" class="main-div"  >
+
+
+  <mat-card class="mat-card" *ngFor="let item of data"  >
+
+      <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-content >
+      <ngb-carousel class="carousel-dark">
+        <ng-template  ngbSlide  *ngFor="let img of getImgPorId(item.id)" >
+              <img  *ngIf="item.id == img.name.slice(0, img.name.indexOf('_'))" src='../../../assets/jovedfiles/{{item.id_user}}/{{item.id}}/{{img.name}}' class="img" alt="Random first slide" />
+        </ng-template>
+
+      </ngb-carousel>
+      <p>{{item.description}}</p>
+    </mat-card-content>
+
+    <mat-card-actions class="buttons">
+
+
+      <button mat-button class="view">VER</button>
+      <button mat-icon-button class="saveproduct" aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+
+</div>
 <!--
 <div class="main-div">
 

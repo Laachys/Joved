@@ -50,3 +50,16 @@ padding: 0 10px;
 
 }
 
+.button-login2{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.button-login2 button{
+  background-color: $morado-primario;
+  color: white;
+  width: 8rem;
+  font-size: 0.6rem;
+}
+
