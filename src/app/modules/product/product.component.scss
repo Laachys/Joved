@@ -1,0 +1,92 @@
+@import '../../../styles/main';
+
+/*
+
+    IMAGENES DE FONDO
+
+*/
+
+.f1{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  position: fixed;
+  opacity: 65%;
+  transform: translateX(100%) translateY(75%) rotate(75deg);
+}
+
+.f3{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  position: fixed;
+  transform: translateX(150%) translateY(-44%) rotate(11deg);
+  z-index: -2;
+  opacity: 65%;
+
+}
+
+.f5{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  position: fixed;
+  opacity: 65%;
+  transform: translateX(325%) translateY(46%) rotate(57deg);
+}
+
+.f6{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(416%) translateY(-37%) rotate(33deg);
+  z-index: -1;
+}
+
+.f7{
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(-35%) translateY(90%) rotate(247deg);
+  z-index: -1;
+}
+
+
+.f11{
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(-29%) translateY(-38%) rotate(247deg);
+  z-index: -1;
+}
+
+
+@media screen and (max-width: 1000px) {
+  .f1{
+    width: 50%;
+    transform: translateX(-55%) translateY(70%) rotate(274deg);
+
+  }
+  .f8{
+    width: 50%;
+    transform: translateX(-55%) translateY(70%) rotate(274deg);
+
+  }
+  .f9{
+    width: 50%;
+    transform: translateX(-55%) translateY(70%) rotate(274deg);
+
+  }
+.f12{
+  width: 50%;
+  transform: translateX(-55%) translateY(70%) rotate(274deg);
+
+}
+}
+

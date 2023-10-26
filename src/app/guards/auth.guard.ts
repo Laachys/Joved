@@ -1,15 +1,14 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
-import { EjemploService } from '../core/ejemplo.service';
+import { serviceService } from '../core/service.service';
 
 
 export const authGuard: CanActivateFn = (route, state) => {
-  //alert(inject(EjemploService).logueado);
 
-  if(inject(EjemploService).id_user == ''){
-  inject(Router).navigate(['/home']);
+  if(inject(serviceService).id_user == ''){
+  inject(Router).navigate(['/']);
   }
 
 
-  return inject(EjemploService).logueado;
+  return inject(serviceService).logueado;
 };

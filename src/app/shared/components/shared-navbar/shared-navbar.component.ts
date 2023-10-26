@@ -1,33 +1,55 @@
-import { EjemploService } from 'src/app/core/ejemplo.service';
+import { serviceService } from 'src/app/core/service.service';
 import { Component } from '@angular/core';
-import { Router} from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-shared-navbar',
   templateUrl: './shared-navbar.component.html',
-  styleUrls: ['./shared-navbar.component.scss']
+  styleUrls: ['./shared-navbar.component.scss'],
 })
 export class SharedNavbarComponent {
-  logueado:boolean | undefined;
+  logueado: boolean | undefined;
+  //home: boolean = true;
 
+  constructor(
+    private api: serviceService,
+    private router: Router,
+    private cookieService: CookieService ,
+    private route: ActivatedRoute
+  ) {
+    this.logueado = this.api.logueado;
+    //this.home = this.api.home;
+  }
 
-constructor(private api: EjemploService, private router: Router , private cookieService: CookieService){
-  this.logueado = this.api.logueado;
-}
+  login() {
+    this.router.navigate(['/login']);
+  }
 
-login(){
-this.router.navigate(['/login']);
+  newProduct() {
+    this.router.navigate(['/newproduct']);
+  }
 
-}
+  home(){
+  this.router.navigate(['/']);
+  }
 
-newProduct(){
-  this.router.navigate(['/newproduct']);
-}
+  logOut() {
+    this.cookieService.set('Id_user', '');
+    this.api.logueado = false;
+    this.router.navigate(['/home']);
+  }
 
-logOut(){
-  this.cookieService.set('Id_user', '');
-  this.router.navigate(['/login']);
+  profile(){
+    this.router.navigate(['/profile']);
+  }
 
-}
+  isHome(){
+    const currentPath = this.route.snapshot.url.join('/');
+    if(currentPath == "" || currentPath =="home"){
+      return true;
+    }else{
+      return false;
+    }
+  }
 }

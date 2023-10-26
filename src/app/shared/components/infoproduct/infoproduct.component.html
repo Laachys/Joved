@@ -1,0 +1,45 @@
+
+
+<div class="main-div">
+
+  <mat-card class="mat-card">
+
+  <h1>{{product.name}}</h1>
+    <ngb-carousel class="carousel-dark" *ngIf="jsonImag!=''">
+      <ng-template ngbSlide *ngFor="let img of jsonImag">
+        <div class="img-inside">
+          <img  src="../../../assets/jovedfiles/{{ product.user }}/{{product.id}}/{{ img.name }}" class="img" alt="Random first slide" />
+        </div>
+
+      </ng-template>
+    </ngb-carousel>
+
+    <span class="price">PRECIO:  {{product.price}} €</span>
+
+    <mat-card class="mat-card-description format-accordeon">
+      <span  class="description-title">DESCRIPCIÓN</span>
+      <span class="description"> {{product.description}}</span>
+    </mat-card>
+
+    <mat-card class="mat-card-description format-accordeon">
+      <span  class="description-title" >UBICACIÓN</span>
+      <span class="address"> {{product.address}}</span>
+    </mat-card>
+
+    <mat-card class="mat-card-description format-accordeon">
+      <span  class="description-title" >OFERTA</span>
+      <div class="infousu">
+      <span class="info"> Nombre: {{user.name}} {{user.surname}}</span>
+      <span class="info"> Correo de contacto: {{user.email}}</span>
+    </div>
+    </mat-card>
+
+
+    <div class="button" >
+    <button mat-fab extended (click)="buy()" [disabled]="!logueado || buttondisabled " >
+      COMPRAR
+    </button>
+  </div>
+
+  </mat-card>
+</div>

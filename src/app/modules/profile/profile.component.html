@@ -1,0 +1,191 @@
+<img src="assets/img-fondo/f2.png" class="f2">
+<img src="assets/img-fondo/f4.png" class="f4">
+<img src="assets/img-fondo/f6.png" class="f6">
+<img src="assets/img-fondo/f8.png" class="f8">
+
+
+<app-shared-navbar></app-shared-navbar>
+
+<div class="main-div" onload="onLoad()">
+
+  <mat-card class="mat-card">
+
+    <mat-tab-group>
+
+
+      <mat-tab label="Productos guardados">
+
+
+        <div class="products-saved"
+          *ngFor="let item of products | paginate : { itemsPerPage: 6, currentPage: p1 , id: 'first'}">
+          <!-- <p>Hola {{item.id}}</p> -->
+          <mat-card class="mat-card-products" *ngIf="isFavorite(item.id)">
+            <p class="name">{{ item.name }}</p>
+            <mat-card-content>
+              <ngb-carousel class="carousel-dark configcarrousel" *ngIf="contieneImg(item.id)">
+                <ng-template ngbSlide *ngFor="let img of getImgPorId(item.id)">
+                  <img *ngIf="item.id == img.name.slice(0, img.name.indexOf('_'))"
+                    src="../../../assets/jovedfiles/{{ item.user }}/{{item.id}}/{{ img.name }}" class="img"
+                    alt="Random first slide" />
+                </ng-template>
+              </ngb-carousel>
+              <mat-card-title class="price">{{ item.price }} € </mat-card-title>
+              <mat-card-subtitle class="subtitulo">{{item.description}}</mat-card-subtitle>
+              <div class="buttons">
+                <button mat-stroked-button (click)="infoproduct(p1, item.id)" class="view">
+                  Información
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <pagination-controls (pageChange)="p1 = $event" id="first"></pagination-controls>
+      </mat-tab>
+
+      <mat-tab label="Mis productos">
+
+        <div class="products-saved"
+          *ngFor="let productbyuser of productsbyuser  | paginate : { itemsPerPage: 2, currentPage: p2 , id: 'second' }">
+          <mat-card class="mat-card-products">
+            <p class="name">{{ productbyuser.name }}</p>
+            <mat-card-content>
+              <ngb-carousel class="carousel-dark configcarrousel" *ngIf="contieneImg(productbyuser.id)">
+                <ng-template ngbSlide *ngFor="let img of getImgPorId(productbyuser.id)">
+                  <img *ngIf="productbyuser.id == img.name.slice(0, img.name.indexOf('_'))"
+                    src="../../../assets/jovedfiles/{{ productbyuser.user }}/{{productbyuser.id}}/{{ img.name }}"
+                    class="img" alt="Random first slide" />
+                </ng-template>
+              </ngb-carousel>
+              <mat-card-title class="price">{{ productbyuser.price }} € </mat-card-title>
+              <mat-card-subtitle class="subtitulo">{{productbyuser.description}}</mat-card-subtitle>
+              <div class="buttons">
+                <button mat-stroked-button (click)="infoproduct(p2, productbyuser.id)" class="view">
+                  Información
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        <pagination-controls (pageChange)="p2 = $event" id="second"></pagination-controls>
+
+
+
+      </mat-tab>
+
+      <mat-tab label="Configuración">
+
+        <mat-stepper #stepper orientation="vertical">
+          <mat-step>
+            <p>
+              <ngb-alert *ngIf="this.showalertemail === true" [type]="'success'"> Correo modificado correctamente </ngb-alert>
+            </p>
+            <form [formGroup]="changeemail" class="correo">
+              <ng-template matStepLabel>Correo electrónico</ng-template>
+              <p>¿Deseas cambiar su correo electrónico asociado?</p>
+
+              <mat-form-field class="mat-form">
+                <mat-label>Nuevo correo</mat-label>
+                <input matInput formControlName="email">
+              </mat-form-field>
+              <mat-form-field class="mat-form">
+                <mat-label>Escriba su contraseña para confirmar</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="passemail">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div class="button-email">
+                <button mat-fab extended [disabled]="!changeemail.valid" (click)="changeEmail()"> Confirmar</button>
+              </div>
+
+            </form>
+          </mat-step>
+
+
+          <mat-step >
+            <p>
+              <ngb-alert *ngIf="this.showalertpass === true" [type]="'success'"> Contraseña modificada correctamente, por su seguridad debe volver a iniciar sesión, redirigiendo...</ngb-alert>
+            </p>
+            <form [formGroup]="changepassword">
+              <ng-template matStepLabel>Contraseña</ng-template>
+              <p>¿Deseas cambiar tu contraseña?</p>
+              <mat-form-field class="mat-form">
+                <mat-label>Escriba la nueva contraseña</mat-label>
+                <input id="newpass" matInput [type]="hidechangepass ? 'password' : 'text'" formControlName="newpass">
+                <button mat-icon-button matSuffix (click)="hidechangepass = !hidechangepass"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidechangepass">
+                  <mat-icon>{{hidechangepass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="mat-form">
+                <mat-label>Repita la nueva contraseña</mat-label>
+                <input matInput [type]="hidechangepassrepeat ? 'password' : 'text'" type="text"
+                  formControlName="newpassrepeat">
+                <button mat-icon-button matSuffix (click)="hidechangepassrepeat = !hidechangepassrepeat"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidechangepassrepeat">
+                  <mat-icon>{{hidechangepassrepeat ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+
+              <mat-form-field class="mat-form">
+                <mat-label>Escriba su antigua contraseña para confirmar</mat-label>
+                <input matInput [type]="hideoldpass ? 'password' : 'text'" formControlName="oldpass">
+                <button mat-icon-button matSuffix (click)="hideoldpass = !hideoldpass"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideoldpass">
+                  <mat-icon>{{hideoldpass ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+              <div class="button-pass">
+                <button mat-fab extended [disabled]="!changepassword.valid" (click)="changePass()"> Confirmar</button>
+              </div>
+            </form>
+          </mat-step>
+
+
+          <mat-step>
+            <p>
+              <ngb-alert *ngIf="this.showalertbadpassclose === true" [type]="'danger'"> Contraseña incorrecta </ngb-alert>
+            </p>
+             <form [formGroup]="closecount" >
+            <ng-template matStepLabel>Cuenta</ng-template>
+            <p>¿Desea cerrar su cuenta de JOVED?</p>
+
+            <ng-template #content let-modal>
+              <div class="modal-header d-flex justify-content-center">
+                <h4 class="modal-title" id="modal-basic-title">Por su seguridad, confirme que desea cerrar su cuenta</h4>
+                <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+              </div>
+              <!-- <div class="modal-body">
+                <form>
+
+                </form>
+              </div> -->
+              <div class="modal-footer d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="close()">Cerrar cuenta</button>
+              </div>
+            </ng-template>
+
+
+            <mat-form-field class="mat-form">
+              <mat-label>Escriba su contraseña para confirmar</mat-label>
+              <input matInput [type]="hideclose ? 'password' : 'text'" type="text"
+                  formControlName="passclose">
+                <button mat-icon-button matSuffix (click)="hideclose = !hideclose"
+                  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideclose">
+                  <mat-icon>{{hideclose ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <div class="button-email">
+              <button mat-fab extended  [disabled]="!closecount.valid" (click)="closeAcount(content)"> Confirmar</button>
+            </div>
+          </form>
+          </mat-step>
+        </mat-stepper>
+
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>

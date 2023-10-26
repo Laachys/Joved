@@ -54,7 +54,7 @@
 
 @mixin titulo-navbar {
   @include fuente-primaria;
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: 0.5rem;
   color: transparent;
@@ -66,7 +66,7 @@
     content: "JOVED";
     position: absolute;
     transform: translateX(-100%);
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     margin: 1.5px;
     z-index: -1;

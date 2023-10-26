@@ -1,0 +1,164 @@
+@import '../../../styles/main';
+
+/*
+
+    CONTENIDO
+
+*/
+
+.main-div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+.img{
+  height: 10rem;
+  width: auto;
+}
+
+.mat-card{
+  box-shadow: 0px 8px 15px -6px #7a7a7a;
+  border: 1px solid #7a7a7a;
+  width: 80rem;
+ // height: 23rem;
+  text-align: center;
+  display: flex;
+  align-content: center;
+justify-content: space-evenly;
+
+
+}
+.pagination{
+  width: 100%;
+  display: grid;
+  text-align: center;
+}
+.configcarrousel{
+  width: 25rem;
+}
+.mat-card-products{
+  gap: 2rem;
+}
+.mat-mdc-card-content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: stretch;
+  flex-wrap: wrap;
+}
+
+.subtitulo, .price{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 2rem;
+  white-space: nowrap;
+  margin-right: 2rem;
+}
+
+.subtitulo{
+  width: 10rem;
+}
+.mat-card-products{
+  width: 60rem;
+  box-shadow: 0px 8px 15px -6px #7a7a7a;
+  border: 1px solid #7a7a7a;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+
+}
+
+.name{
+  margin-top: 1rem;
+  font-weight: 500;
+}
+.products-saved{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.correo{
+  display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+}
+
+.mat-form{
+  width: 50rem;
+}
+
+.button-email button, .button-pass button {
+  background-color: $morado-primario;
+  color: white;
+}
+
+
+
+/*
+
+    IMAGENES DE FONDO
+
+*/
+
+.f2{
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  position: fixed;
+  opacity: 65%;
+  transform: translateX(220%) translateY(39%) rotate(61deg);
+}
+
+.f4{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(-41%) translateY(56%) rotate(344deg);
+}
+
+.f6{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(250%) translateY(-42%) rotate(68deg);
+}
+
+.f8{
+  display: flex;
+    flex-direction: column;
+    width: 30%;
+    opacity: 65%;
+    position: fixed;
+    transform: translateX(-23%) translateY(-36%) rotate(262deg);
+}
+
+@media screen and (max-width: 1000px) {
+  .f2{
+    width: 60%;
+    transform: translateX(-35%) translateY(-35%) rotate(274deg);
+  }
+  .f4{
+    width: 60%;
+    transform: translateX(110%) translateY(-25%) rotate(208deg);
+  }
+  .f7{
+    width: 60%;
+    transform: translateX(95%) translateY(100%) rotate(333deg);
+  }
+  .f12{
+    width: 60%;
+    transform: translateX(-15%) translateY(140%) rotate(308deg);
+  }
+}

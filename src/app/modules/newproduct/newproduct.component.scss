@@ -1,5 +1,12 @@
 @import '../../../styles/main';
 
+/*
+
+    CONTENIDO
+
+*/
+
+
 .main-div{
   display: flex;
   flex-direction: column;
@@ -10,103 +17,34 @@
   transform: translate(50%);
   text-align: center;
 }
+
+.titulo-principal{
+  @include titulo-inicio;
+}
+
 .mat-card{
   box-shadow: -10px 10px 25px -8px #7519de;
   border: 1px solid #E7E7E7;
   margin-bottom: 20px;
-
 }
+
 .imagenes img{
   width: 30%;
 }
+
 .name , .price, .address, .description , .categories{
   width: 100%;
 }
 
-.button-login{
+.button-div{
   display: flex;
   justify-content: center;
-
 }
 
-.button-login button{
+.button-div button{
   background-color: $morado-primario;
   color: white;
 }
-
-
-.button-login img{
-  width: 100%;
-  object-fit: cover;
-}
-
-
-.titulo-principal{
-  @include titulo-inicio;
-
-}
-
-.f2{
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  position: fixed;
-  transform: translateX(-25%) translateY(-35%) rotate(355deg);
-}
-@media screen and (max-width: 1000px) {
-  .f2{
-    width: 60%;
-    transform: translateX(-35%) translateY(-35%) rotate(274deg);
-
-  }
-}
-
-.f4{
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  position: fixed;
-  transform: translateX(220%) translateY(-35%) rotate(208deg);
-}
-@media screen and (max-width: 1000px) {
-.f4{
-  width: 60%;
-  transform: translateX(110%) translateY(-25%) rotate(208deg);
-
-}
-}
-
-.f12{
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  position: fixed;
-  transform: translateX(-5%) translateY(35%) rotate(308deg);
-}
-@media screen and (max-width: 1000px) {
-.f12{
-  width: 60%;
-  transform: translateX(-15%) translateY(140%) rotate(308deg);
-
-}
-}
-
-.f7{
-  display: flex;
-  flex-direction: column;
-  width: 30%;
-  position: fixed;
-  transform: translateX(250%) translateY(40%) rotate(333deg);
-}
-@media screen and (max-width: 1000px) {
-.f7{
-  width: 60%;
-  transform: translateX(95%) translateY(100%) rotate(333deg);
-
-}
-}
-
-
 
 .custom-dropzone {
   display: flex;
@@ -121,3 +59,67 @@
 .custom-dropzone p{
  width: 28rem;
 }
+
+
+/*
+
+    IMAGENES DE FONDO
+
+*/
+
+.f2{
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  position: fixed;
+  opacity: 65%;
+  transform: translateX(-25%) translateY(-35%) rotate(355deg);
+}
+
+.f4{
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(220%) translateY(-35%) rotate(208deg);
+}
+
+.f12{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(-5%) translateY(35%) rotate(308deg);
+}
+
+.f7{
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  opacity: 65%;
+  position: fixed;
+  transform: translateX(250%) translateY(40%) rotate(333deg);
+}
+
+@media screen and (max-width: 1000px) {
+  .f2{
+    width: 60%;
+    transform: translateX(-35%) translateY(-35%) rotate(274deg);
+  }
+  .f4{
+    width: 60%;
+    transform: translateX(110%) translateY(-25%) rotate(208deg);
+  }
+  .f7{
+    width: 60%;
+    transform: translateX(95%) translateY(100%) rotate(333deg);
+  }
+  .f12{
+    width: 60%;
+    transform: translateX(-15%) translateY(140%) rotate(308deg);
+  }
+}
+
+

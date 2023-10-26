@@ -1,5 +1,16 @@
 
 @import '../../../../styles/main.scss';
+/*
+
+  CONTENIDO
+
+*/
+
+
+.titulo-principal {
+  @include titulo-navbar;
+}
+
 
 *{
   box-sizing: border-box;
@@ -7,18 +18,25 @@
   padding: 0;
   font-size: 1rem;
 }
+
 .title-name{
   @include titulo-navbar;
 }
+
 .header{
   margin-right: 8rem;
-  padding-top: 3rem;
-  display: flex;
-  flex-direction: row-reverse;
+    margin-left: 10rem;
+    padding-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.titulo button{
+  border: 1px none;
+    background: none;
 }
 @media screen and (max-width: 1000px) {
   .header{
-   // margin-left: 20rem;
    margin-right: 1rem;
     padding-top: 3rem;
     display: flex;
@@ -27,11 +45,18 @@
 }
 
 img{
-  width: 4rem;
-  background-color: rgb(255 255 255 / 90%);
-  border: 1px solid rgb(238 238 238 / 90%);
-  border-radius: 45%;
-  box-shadow: 9px 10px 30px -5px #7519de;
+  width: 5rem;
+}
+
+span{
+  font-size: medium;
+}
+
+.button-login{
+  background-color: rgb(255, 255, 255);
+  height: max-content;
+  box-shadow: 5px 5px 6px 3px #7a7a7a;
+  border: 1px solid rgb(236 235 235);
 }
 
 .nav-links{
@@ -41,13 +66,11 @@ img{
 .nav-links li{
 display: inline-block;
 padding: 0 10px;
-
 }
 
 .nav-links a{
   font-size: 1rem;
   text-decoration: none;
-
 }
 
 .button-login2{
@@ -63,3 +86,16 @@ padding: 0 10px;
   font-size: 0.6rem;
 }
 
+mat-icon{
+  margin-right: 16px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  justify-content: flex-end;
+
+}
+
+.hidden{
+  visibility: hidden;
+}

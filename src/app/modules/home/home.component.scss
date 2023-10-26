@@ -1,5 +1,10 @@
 @import '../../../styles/main';
 
+/*
+
+  ELEMENTOS
+
+*/
 .main-div{
   display: flex;
   flex-direction: column;
@@ -12,6 +17,11 @@
   text-align: center;
 }
 
+.titulo-home{
+  @include titulo-home;
+}
+
+
 .options-div{
   display: flex;
   flex-direction: row;
@@ -20,213 +30,27 @@
   right: 50%;
   transform: translate(50%, -50%);
   gap: 2rem;
-  //background-color: rgb(246 244 244 / 10%);
-}
-@media screen and (max-width: 1000px) {
-  .options-div{
-    right: 0%;
-    transform: translate(0%, -50%);
-  }
+
 }
 
-.card-buy, .card-sold{
+.card-buy{
   display: flex;
   align-items: center;
   flex-direction: column;
   border: none;
-
-}
-// .options-div{
-//   display: flex;
-//   flex-direction: row;
-//   height: max-content;
-//   width: 40%;
-//   position: absolute;
-//   top: 55%;
-//   right: 50%;
-//   transform: translate(50%, -50%);
-//   gap: 2rem;
-
-//   :hover{
-//     background-color:white;
-//   }
-// }
-
-.card-buy{
-  //box-shadow: 0px 10px 45px -8px #7519de;
   border: 0px solid #E7E7E7;
   filter: drop-shadow(0px 0px 10px gray);
+  margin: 25px;
 
 }
-.card-sold{
-  //box-shadow: 0px 10px 45px -8px #7519de;
-  border: 0px solid #E7E7E7;
-  //background-color: rgb(246, 244, 244);
-  filter: drop-shadow(0px 0px 10px gray);
-}
 
-.titulo-home{
-  @include titulo-home;
-
-}
 button{
   background: transparent;
 }
-// a{
-//   display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     text-decoration: none;
-//     color: black;
-//     gap:1rem;
-// }
-
-.f6{
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  position: fixed;
-  transform: translateX(0%) translateY(-21%) rotate(183deg);
-  opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f6{
-  width: 40%;
-  transform: translateX(-20%) translateY(-35%) rotate(274deg);
-
-}
-}
-
-
-.f9{
-  display: flex;
-    flex-direction: column;
-    width: 25%;
-    position: fixed;
-    transform: translateX(-25%) translateY(50%) rotate(274deg);
-    opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f9{
-  width: 40%;
-  transform: translateX(-25%) translateY(245%) rotate(274deg);
-
-}
-}
-
-
-.f5{
-  display: flex;
-    flex-direction: column;
-    width: 30%;
-    position: fixed;
-    transform: translateX(205%) translateY(-35%) rotate(319deg);
-    opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f5{
-  width: 50%;
-  transform: translateX(145%) translateY(120%) rotate(319deg);
-
-}
-}
-
-
-.f10{
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  position: fixed;
-  transform: translateX(252%) translateY(105%) rotate(296deg);
-  opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f10{
-  width: 40%;
-  transform: translateX(155%) translateY(265%) rotate(256deg);
-
-}
-}
-
-.f11{
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  position: fixed;
-  transform: translateX(430%) translateY(75%) rotate(201deg);
-  opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f11{
-  width: 50%;
-  transform: translateX(-55%) translateY(70%) rotate(274deg);
-
-}
-}
-
-
-.f12{
-  display: flex;
-  flex-direction: column;
-  width: 18%;
-  position: fixed;
-  transform: translateX(100%) translateY(95%) rotate(157deg);
-  opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f12{
-  width: 20%;
-  transform: translateX(405%) translateY(150%) rotate(257deg);
-
-}
-}
-
-
-
-.f4{
-  display: flex;
-  flex-direction: column;
-  width: 20%;
-  position: fixed;
-  transform: translateX(430%) translateY(-45%) rotate(113deg);
-  opacity: 65%;
-}
-@media screen and (max-width: 1000px) {
-.f4{
-  width: 50%;
-  transform: translateX(130%) translateY(-45%) rotate(113deg);
-
-}
-}
-
-
-.buy, .sold{
- width: 60%;
-
-}
-@media screen and (max-width: 1000px) {
-.f1{
-  width: 100%;
-}
-
-}
-
-
-
-.card-buy{
-  margin: 25px;
-}
-// .card-sold{
-//   margin-left: 5%;
-// }
-
-
 
 .clothes, .vehicles, .houses{
   width: 35%;
-
  }
-
 
  .button-houses, .button-vehicles , .button-clothes{
   display: flex;
@@ -238,3 +62,113 @@ button{
  .button-houses label,  .button-vehicles label , .button-clothes label{
   margin-bottom: 1rem;
  }
+
+
+
+/*
+
+    IMAGENES DE FONDO
+
+*/
+
+.f6{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  position: fixed;
+  transform: translateX(0%) translateY(-21%) rotate(183deg);
+  opacity: 65%;
+}
+
+.f9{
+  display: flex;
+    flex-direction: column;
+    width: 25%;
+    position: fixed;
+    transform: translateX(-25%) translateY(50%) rotate(274deg);
+    opacity: 65%;
+}
+
+.f5{
+  display: flex;
+    flex-direction: column;
+    width: 30%;
+    position: fixed;
+    transform: translateX(205%) translateY(-35%) rotate(319deg);
+    opacity: 65%;
+}
+
+.f10{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  position: fixed;
+  transform: translateX(252%) translateY(105%) rotate(296deg);
+  opacity: 65%;
+}
+
+.f11{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  position: fixed;
+  transform: translateX(430%) translateY(75%) rotate(201deg);
+  opacity: 65%;
+}
+
+.f12{
+  display: flex;
+  flex-direction: column;
+  width: 18%;
+  position: fixed;
+  transform: translateX(20rem) translateY(30rem) rotate(157deg);
+  opacity: 65%;
+}
+
+.f4{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  position: fixed;
+  transform: translateX(430%) translateY(-45%) rotate(113deg);
+  opacity: 65%;
+}
+
+ @media screen and (max-width: 1000px) {
+  .options-div{
+    right: 0%;
+    transform: translate(0%, -50%);
+  }
+  .f1{
+    width: 100%;
+  }
+  .f4{
+    width: 50%;
+    transform: translateX(130%) translateY(-45%) rotate(113deg);
+  }
+  .f5{
+    width: 50%;
+    transform: translateX(145%) translateY(120%) rotate(319deg);
+  }
+  .f6{
+    width: 40%;
+    transform: translateX(-20%) translateY(-35%) rotate(274deg);
+  }
+  .f9{
+    width: 40%;
+    transform: translateX(-25%) translateY(245%) rotate(274deg);
+
+  }
+  .f12{
+    width: 20%;
+    transform: translateX(405%) translateY(150%) rotate(257deg);
+  }
+  .f11{
+    width: 50%;
+    transform: translateX(-55%) translateY(70%) rotate(274deg);
+  }
+  .f10{
+    width: 40%;
+    transform: translateX(155%) translateY(265%) rotate(256deg);
+  }
+}

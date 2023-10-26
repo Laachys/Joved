@@ -1,88 +1,101 @@
-
-<img src="assets/img-fondo/f2.png" class="f2" >
-<img src="assets/img-fondo/f4.png" class="f4" >
-<img src="assets/img-fondo/f12.png" class="f12" >
-<img src="assets/img-fondo/f7.png" class="f7" >
+<img src="assets/img-fondo/f2.png" class="f2">
+<img src="assets/img-fondo/f4.png" class="f4">
+<img src="assets/img-fondo/f12.png" class="f12">
+<img src="assets/img-fondo/f7.png" class="f7">
 
 
 <div class="main-div">
   <span class="titulo-principal">JOVED</span>
-<mat-card class="mat-card">
-  <mat-card-content>
-    <form [formGroup]="formularioNewProduct"  (submit)="onSubmit()"  >
+  <p>
+    <ngb-alert *ngIf="this.showalert === true" [type]="'success'"> Oferta creada correctamente. </ngb-alert>
+  </p>
 
-      <mat-form-field class="categories">
-        <mat-label>Categoría</mat-label>
-        <mat-select matInput (selectionChange)="selectCategory($event)"  name="category" id="category">
-          <mat-option value="0">Inmobiliaria</mat-option>
-          <mat-option value="1">Vehículos</mat-option>
-          <mat-option value="2">Moda</mat-option>
-        </mat-select>
-        <!-- <mat-hint align="end">Here's the dropdown arrow ^</mat-hint> -->
-      </mat-form-field>
+  <p>
+    <ngb-alert *ngIf="this.showalertfailed === true" [type]="'danger'"> Ha ocurrido un error, por favor, inténtelo de nuevo más tarde. </ngb-alert>
+  </p>
+  <mat-card class="mat-card">
+    <mat-card-content>
+      <form [formGroup]="formularioNewProduct" (submit)="onSubmit()">
 
-      <mat-form-field class="name">
-        <mat-label for="name">Nombre del producto</mat-label>
-        <mat-icon matSuffix>emoji_objects</mat-icon>
-        <input  formControlName="name" matInput id="name"  name="name">
-        <mat-hint *ngIf="formularioNewProduct.controls['name'].errors && (formularioNewProduct.controls['name'].value)"> Debes introducir un nombre</mat-hint>
-      </mat-form-field>
+        <mat-form-field class="categories">
+          <mat-label>Categoría</mat-label>
+          <mat-select matInput (selectionChange)="selectCategory($event)" name="category" id="category">
+            <mat-option selected value="0">Inmobiliaria</mat-option>
+            <mat-option value="1">Vehículos</mat-option>
+            <mat-option value="2">Moda</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-      <br>
-      <br>
+        <mat-form-field class="name">
+          <mat-label for="name">Nombre del producto</mat-label>
+          <mat-icon matSuffix>emoji_objects</mat-icon>
+          <input formControlName="name" matInput id="name" name="name">
+          <mat-hint
+            *ngIf="formularioNewProduct.controls['name'].errors && (formularioNewProduct.controls['name'].value)"> Debes
+            introducir un nombre</mat-hint>
+        </mat-form-field>
 
-      <mat-form-field class="price">
-        <mat-label for="price">Precio</mat-label>
-        <mat-icon matSuffix>euro</mat-icon>
-        <input formControlName="price"  (input)="onlyNumbers($event)" matInput id="price" name="price">
-        <mat-hint *ngIf="formularioNewProduct.controls['price'].errors && (formularioNewProduct.controls['price'].value)"> Debes introducir un apellido </mat-hint>
-      </mat-form-field>
+        <br>
+        <br>
 
-      <br>
-      <br>
+        <mat-form-field class="price">
+          <mat-label for="price">Precio</mat-label>
+          <mat-icon matSuffix>euro</mat-icon>
+          <input formControlName="price" (input)="onlyNumbers($event)" matInput id="price" name="price">
+          <mat-hint
+            *ngIf="formularioNewProduct.controls['price'].errors && (formularioNewProduct.controls['price'].value)">
+            Debes introducir un apellido </mat-hint>
+        </mat-form-field>
 
-      <mat-form-field class="address">
-        <mat-label for="address">Dirección</mat-label>
-        <mat-icon matSuffix>pin_drop</mat-icon>
-        <input matInput formControlName="address" type="text"  id="address"
-          name="address">
-        <mat-hint *ngIf="formularioNewProduct.controls['address'].errors && (formularioNewProduct.controls['address'].value)">Debes introducir una dirección</mat-hint>
-      </mat-form-field>
+        <br>
+        <br>
 
-      <br>
-      <br>
+        <mat-form-field class="address">
+          <mat-label for="address">Dirección</mat-label>
+          <mat-icon matSuffix>pin_drop</mat-icon>
+          <input matInput formControlName="address" type="text" id="address" name="address">
+          <mat-hint
+            *ngIf="formularioNewProduct.controls['address'].errors && (formularioNewProduct.controls['address'].value)">Debes
+            introducir una dirección</mat-hint>
+        </mat-form-field>
 
-      <mat-form-field class="description">
-        <mat-label for="description">Descripción</mat-label>
-        <textarea formControlName="description"  #message maxlength="450" matInput id="description" name="description"></textarea>
-        <mat-hint *ngIf="formularioNewProduct.controls['description'].errors && (formularioNewProduct.controls['description'].value) " >Debes introducir una descripción</mat-hint>
-        <mat-hint align="end">{{message.value.length}} / 450</mat-hint>
-      </mat-form-field>
+        <br>
+        <br>
+
+        <mat-form-field class="description">
+          <mat-label for="description">Descripción</mat-label>
+          <textarea formControlName="description" #message maxlength="450" matInput id="description"
+            name="description"></textarea>
+          <mat-hint
+            *ngIf="formularioNewProduct.controls['description'].errors && (formularioNewProduct.controls['description'].value) ">Debes
+            introducir una descripción</mat-hint>
+          <mat-hint align="end">{{message.value.length}} / 450</mat-hint>
+        </mat-form-field>
 
 
 
-        <div class="custom-dropzone" >
-       <ngx-dropzone border="none" [accept]="'image/png , image/jpeg , image/jpg'" (change)="onFilesAdded($event)">
-        <ngx-dropzone-label>
-          <div>
-            <mat-icon matSuffix>cloud_upload</mat-icon>
-            <p>Puede arrastrar y soltar archivos aquí</p>
-          </div>
-        </ngx-dropzone-label>
-        <ngx-dropzone-image-preview class="imagenes" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of this.files" [file]="f" [removable]="true"
-          (removed)="onRemove(f)">
-          <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
-        </ngx-dropzone-image-preview>
-      </ngx-dropzone>
-      </div>
+        <div class="custom-dropzone">
+          <ngx-dropzone border="none" [accept]="'image/png , image/jpeg , image/jpg'" (change)="onFilesAdded($event)">
+            <ngx-dropzone-label>
+              <div>
+                <mat-icon matSuffix>cloud_upload</mat-icon>
+                <p>Puede arrastrar y soltar archivos aquí</p>
+              </div>
+            </ngx-dropzone-label>
 
-      <div class="button-login">
-        <button mat-fab extended>
-          CREAR
-        </button>
-      </div>
-    </form>
-  </mat-card-content>
-</mat-card>
+            <ngx-dropzone-image-preview class="imagenes" ngProjectAs="ngx-dropzone-preview" *ngFor="let f of this.files"
+              [file]="f" [removable]="true" (removed)="onRemove(f)">
+              <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
+            </ngx-dropzone-image-preview>
+          </ngx-dropzone>
+        </div>
+
+        <div class="button-div">
+          <button mat-fab extended [disabled]="!formularioNewProduct.valid">
+            CREAR
+          </button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
-

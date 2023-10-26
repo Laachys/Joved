@@ -1,5 +1,16 @@
 @import '../../../styles/main';
 
+
+/*
+
+    CONTENIDO
+
+*/
+
+.titulo-principal{
+  @include titulo-inicio;
+}
+
 .main-div{
   display: flex;
   flex-direction: column;
@@ -9,14 +20,13 @@
   right: 50%;
   transform: translate(50%);
 }
+
 .mat-card{
-  // box-shadow: -10px 10px 25px -8px #7519de;
-  // border: 1px solid #E7E7E7;
   margin-bottom: 20px;
   box-shadow: 0px 8px 15px -6px #7a7a7a;
-    border: 1px solid #dedbdb;
-
+  border: 1px solid #dedbdb;
 }
+
 .username , .password, .name, .surname, .phone , .date, .email{
   width: 100%;
 }
@@ -24,7 +34,6 @@
 .button-login{
   display: flex;
   justify-content: center;
-
 }
 
 .button-login button{
@@ -32,6 +41,10 @@
   color: white;
 }
 
+.button-login button:disabled{
+  background-color: #9a52ffb1;
+  color: white;
+}
 
 .button-login img{
   width: 100%;
@@ -45,14 +58,14 @@
  font-size: 1.5rem;
  color: black;
  margin-bottom: 2rem;
-
 }
 
 
-.titulo-principal{
-  @include titulo-inicio;
+/*
 
-}
+    IMAGENES DE FONDO
+
+*/
 
 .f2{
   display: flex;
@@ -60,13 +73,6 @@
   width: 35%;
   position: fixed;
   transform: translateX(-25%) translateY(-35%) rotate(355deg);
-}
-@media screen and (max-width: 1000px) {
-  .f2{
-    width: 60%;
-    transform: translateX(-35%) translateY(-35%) rotate(274deg);
-
-  }
 }
 
 .f4{
@@ -76,13 +82,6 @@
   position: fixed;
   transform: translateX(220%) translateY(-35%) rotate(208deg);
 }
-@media screen and (max-width: 1000px) {
-.f4{
-  width: 60%;
-  transform: translateX(110%) translateY(-25%) rotate(208deg);
-
-}
-}
 
 .f12{
   display: flex;
@@ -90,13 +89,6 @@
   width: 30%;
   position: fixed;
   transform: translateX(-5%) translateY(35%) rotate(308deg);
-}
-@media screen and (max-width: 1000px) {
-.f12{
-  width: 60%;
-  transform: translateX(-15%) translateY(140%) rotate(308deg);
-
-}
 }
 
 .f7{
@@ -106,10 +98,22 @@
   position: fixed;
   transform: translateX(250%) translateY(40%) rotate(333deg);
 }
-@media screen and (max-width: 1000px) {
-.f7{
-  width: 60%;
-  transform: translateX(95%) translateY(100%) rotate(333deg);
 
-}
+@media screen and (max-width: 1000px) {
+  .f2{
+    width: 60%;
+    transform: translateX(-35%) translateY(-35%) rotate(274deg);
+  }
+  .f4{
+    width: 60%;
+    transform: translateX(110%) translateY(-25%) rotate(208deg);
+  }
+  .f7{
+    width: 60%;
+    transform: translateX(95%) translateY(100%) rotate(333deg);
+  }
+  .f12{
+    width: 60%;
+    transform: translateX(-15%) translateY(140%) rotate(308deg);
+  }
 }

@@ -20,6 +20,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { NgbCarouselModule, } from '@ng-bootstrap/ng-bootstrap';
 import {MatSelectModule} from '@angular/material/select';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatStepperModule} from '@angular/material/stepper';
 
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -28,6 +31,12 @@ import { NewproductComponent } from './newproduct/newproduct.component';
 import { NgxDropzoneModule } from 'ngx-dropzone';
 import { NgxPaginationModule } from 'ngx-pagination';
 
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductsComponent } from '../shared/components/products/products.component';
+import { ProductComponent } from './product/product.component';
+import { InfoproductComponent } from '../shared/components/infoproduct/infoproduct.component';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './profile/profile.component';
 
 
 // Your web app's Firebase configuration
@@ -81,7 +90,11 @@ const analytics = getAnalytics(app);
     HomeComponent,
     CategoriesComponent,
     SharedNavbarComponent,
-    NewproductComponent
+    NewproductComponent,
+    ProductsComponent,
+    ProductComponent,
+    InfoproductComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -100,7 +113,13 @@ const analytics = getAnalytics(app);
     NgbCarouselModule,
     NgxDropzoneModule,
     MatSelectModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgbAlertModule,
+    NgbAccordionModule,
+    MatExpansionModule,
+    MatNativeDateModule,
+    MatTabsModule,
+    MatStepperModule
 
   ],
    exports: [LoginComponent, RegisterComponent, HomeComponent]

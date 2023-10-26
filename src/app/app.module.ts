@@ -15,6 +15,9 @@ import {MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter
 import {MatMenuModule} from '@angular/material/menu';
 import { SharedNavbarComponent } from './shared/components/shared-navbar/shared-navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductsComponent } from './shared/components/products/products.component';
+import { InfoproductComponent } from './shared/components/infoproduct/infoproduct.component';
+
 
 
 
