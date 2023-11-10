@@ -49,8 +49,8 @@
           <mat-card class="mat-card-products">
             <p class="name">{{ productbyuser.name }}</p>
             <mat-card-content>
-              <ngb-carousel class="carousel-dark configcarrousel" *ngIf="contieneImg(productbyuser.id)">
-                <ng-template ngbSlide *ngFor="let img of getImgPorId(productbyuser.id)">
+              <ngb-carousel class="carousel-dark configcarrousel" *ngIf="contieneImgByUser(productbyuser.id)">
+                <ng-template ngbSlide *ngFor="let img of getImgPorIdByUser(productbyuser.id)">
                   <img *ngIf="productbyuser.id == img.name.slice(0, img.name.indexOf('_'))"
                     src="../../../assets/jovedfiles/{{ productbyuser.user }}/{{productbyuser.id}}/{{ img.name }}"
                     class="img" alt="Random first slide" />
@@ -62,6 +62,9 @@
                 <button mat-stroked-button (click)="infoproduct(p2, productbyuser.id)" class="view">
                   Información
                 </button>
+                <mat-slide-toggle class="activado" [ngModel]="productbyuser.active=='1'"  (click)="changeActive(productbyuser)">
+                  Producto activado
+                </mat-slide-toggle>
               </div>
             </mat-card-content>
           </mat-card>
@@ -106,6 +109,12 @@
           <mat-step >
             <p>
               <ngb-alert *ngIf="this.showalertpass === true" [type]="'success'"> Contraseña modificada correctamente, por su seguridad debe volver a iniciar sesión, redirigiendo...</ngb-alert>
+            </p>
+            <p>
+              <ngb-alert *ngIf="this.showalertbadrepeat === true" [type]="'danger'"> Repetición de contraseñas incorrecta </ngb-alert>
+            </p>
+            <p>
+              <ngb-alert *ngIf="this.showalertbadpass === true" [type]="'danger'"> Contraseña incorrecta </ngb-alert>
             </p>
             <form [formGroup]="changepassword">
               <ng-template matStepLabel>Contraseña</ng-template>

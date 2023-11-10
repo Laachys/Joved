@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CookieService } from 'ngx-cookie-service';
+import { Subscription } from 'rxjs';
 import { serviceService } from 'src/app/core/service.service';
 
 @Component({
@@ -28,6 +29,10 @@ export class ProfileComponent {
   showalertpass = false;
   showalertbadpassclose = false;
   showalertclosecount: boolean = false;
+  isChecked = true;
+  isActive = true;
+  showalertbadrepeat = false;
+  showalertbadpass = false;
 
 
   changeemail = this.fb.group({
@@ -50,6 +55,8 @@ export class ProfileComponent {
   jsonImagbyuser: any;
   closeResult = '';
   modalreference: any;
+  allfavorites: Subscription;
+
 
 
 constructor( private modalService: NgbModal ,private fb: FormBuilder , private cookieService: CookieService , private rutaActiva: ActivatedRoute , private router: Router, private api: serviceService){
@@ -59,7 +66,7 @@ constructor( private modalService: NgbModal ,private fb: FormBuilder , private c
   this.formData.append( 'id_user' , this.api.id_user);
 
   //Sacamos primero los productos favoritos
-  this.api.allfavorites(this.api.id_user).subscribe((data => {
+  this.allfavorites = this.api.allfavorites(this.api.id_user).subscribe((data => {
     this.favorites = data;
     this.favorites = this.favorites.map(
       (item: { product: any }) => item.product
@@ -79,7 +86,10 @@ constructor( private modalService: NgbModal ,private fb: FormBuilder , private c
   this.api.allproductbyiduser(this.api.id_user).subscribe((data => {
     this.productsbyuser = JSON.parse(data.products);
     this.jsonImagbyuser = JSON.parse(data.files);
-    console.log(this.productsbyuser);
+
+    // console.log(this.jsonImagbyuser);
+    // console.log(this.productsbyuser);
+
     return data;
   }))
 
@@ -132,8 +142,18 @@ if(this.changepassword.controls['newpass'].value === this.changepassword.control
     setTimeout(() => {
       this.router.navigate(['login']);
     }, 5000);
+    }else{
+      this.showalertbadpass = true;
+      setTimeout(() => {
+        this.showalertbadpass = false;
+      }, 3000);
     }
   }))
+}else{
+  this.showalertbadrepeat = true;
+  setTimeout(() => {
+    this.showalertbadrepeat = false;
+  }, 3000);
 }
 }
 
@@ -163,6 +183,21 @@ contieneImg(id: string): boolean {
   return bool;
 }
 
+contieneImgByUser(id: string): boolean {
+  var bool = false;
+  for (const img of this.jsonImagbyuser) {
+    if (img.name.slice(0, img.name.indexOf('_')) == id) bool = true;
+  }
+  return bool;
+}
+
+getImgPorIdByUser(id: number): any[] {
+  return this.jsonImagbyuser.filter((img: { name: string }) =>
+    img.name.startsWith(id + '_')
+  );
+}
+
+
 getImgPorId(id: number): any[] {
   return this.jsonImag.filter((img: { name: string }) =>
     img.name.startsWith(id + '_')
@@ -190,6 +225,24 @@ close() {
       }, 5000);
     }
   }))
+}
+
+
+changeActive(product : any){
+this.api.changeactive(product).subscribe((data =>{
+
+  if(data.response == "false"){
+    //console.log("Desactivando");
+    this.isActive = false;
+    product.active = 0;
+  }
+}))
+}
+ngOnDestroy(){
+
+  if (this.allfavorites) {
+    this.allfavorites.unsubscribe();
+  }
 }
 
 }

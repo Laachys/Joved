@@ -17,7 +17,7 @@
   margin-top: 1.5rem;
 }
 .img{
-  height: 10rem;
+  height: 7.5rem;
   width: auto;
 }
 
@@ -39,7 +39,7 @@ justify-content: space-evenly;
   text-align: center;
 }
 .configcarrousel{
-  width: 25rem;
+  width: 20rem;
 }
 .mat-card-products{
   gap: 2rem;
@@ -93,6 +93,13 @@ justify-content: space-evenly;
 
 .mat-form{
   width: 50rem;
+}
+
+.buttons{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  flex-direction: column;
 }
 
 .button-email button, .button-pass button {

@@ -127,4 +127,14 @@ export class serviceService {
     let direccion = this.url+"/desactivateacount";
     return this.http.post(direccion ,formData);
   }
+
+  changeactive(formData: ProductI):Observable <any>{
+    let direccion = this.url+"/changeactive";
+    return this.http.post(direccion ,formData);
+  }
+
+  getSoldByUser(formData: String): Observable <any>{
+    let direccion = this.url+"/getsoldbyuser";
+    return this.http.post(direccion ,formData);
+  }
 }

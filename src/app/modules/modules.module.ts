@@ -37,6 +37,7 @@ import { ProductComponent } from './product/product.component';
 import { InfoproductComponent } from '../shared/components/infoproduct/infoproduct.component';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './profile/profile.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 // Your web app's Firebase configuration
@@ -119,7 +120,8 @@ const analytics = getAnalytics(app);
     MatExpansionModule,
     MatNativeDateModule,
     MatTabsModule,
-    MatStepperModule
+    MatStepperModule,
+    MatSlideToggleModule
 
   ],
    exports: [LoginComponent, RegisterComponent, HomeComponent]
